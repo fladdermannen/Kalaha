@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hint">Write text</string>
+    <string name="click_me">CLICK ME</string>
+    <string name="background">Wooden background</string>
+    <string name="rulesHeader">Rules</string>
+    <string name="rules">Bla bla bla bla bla bla bla bla bla bla bla bal bal bla bal bal bal bal
+    bla bla bla bla bla bal bla blabla bla bla blaba l bajl albja ldfjadij diofj aiodjiaj
+    iosfjioajfoiasjdfioa sjfio jfiaso fjasiof jsiofj iasfj sfj sfj aiojf sdfj asiofjisfjsiod fjaiosd
+    aiosjdf iasjdfio jasfio jsfiojasfi jsfo jasidfj iasfj safj asiofjs iofj asifjsdo as</string>
+
+</resources>
