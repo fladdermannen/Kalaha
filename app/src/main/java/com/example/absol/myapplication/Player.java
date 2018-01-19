@@ -8,10 +8,15 @@ import java.util.ArrayList;
 
 public class Player {
     private ArrayList<Hole> holes = new ArrayList<>();
+    private int score;
 
     public Player() {
-        for(int i = 0; i < 7; i++) {
+        for(int i = 0; i < 6; i++) {
             this.holes.add(new Hole());
         }
+    }
+
+    public int getScore() {
+        return score;
     }
 }

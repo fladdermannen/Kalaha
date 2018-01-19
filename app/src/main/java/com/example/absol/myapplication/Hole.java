@@ -10,4 +10,8 @@ public class Hole {
     public Hole() {
         this.balls = 6;
     }
+
+    public int getBalls() {
+        return balls;
+    }
 }
