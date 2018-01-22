@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.blabla.MESSAGE";
+    //public static final String EXTRA_MESSAGE = "com.example.blabla.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +22,20 @@ public class MainActivity extends AppCompatActivity {
         //myTextView.setText(blabla.getText());
         //myTextView.setTextSize(100);
         Intent myIntent = new Intent(this, KalahaActivity.class);
-        EditText editedText = (EditText) findViewById(R.id.editText);
-        String message = editedText.getText().toString();
-        myIntent.putExtra(EXTRA_MESSAGE, message);
+
+
 
         startActivity(myIntent);
+
+        Button rulesBtn = (Button)findViewById(R.id.rulesBtn);
+        rulesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(),RulesActivity.class);
+                startActivity(startIntent);
+            }
+        });
+
+
     }
 }

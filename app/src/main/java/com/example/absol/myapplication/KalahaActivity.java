@@ -13,10 +13,10 @@ public class KalahaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
-        Intent myIntent = getIntent();
-        String messageRetr = myIntent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView myTextView = (TextView) findViewById(R.id.displayText);
-        myTextView.setText(messageRetr);
+        //Intent myIntent = getIntent();
+        //String messageRetr = myIntent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        //TextView myTextView = (TextView) findViewById(R.id.displayText);
+        //myTextView.setText(messageRetr);
 
     }
 

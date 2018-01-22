@@ -39,7 +39,7 @@
         android:layout_height="150dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/playerOneNest"
         android:background="@drawable/hole"
         android:text="nestRight" />
 
