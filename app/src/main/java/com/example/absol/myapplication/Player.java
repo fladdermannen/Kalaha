@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Player {
     private ArrayList<Hole> holes = new ArrayList<>();
-    private int score;
+    private int score = 0;
 
     public Player() {
         for(int i = 0; i < 6; i++) {
@@ -19,4 +19,10 @@ public class Player {
     public int getScore() {
         return score;
     }
+
+    public ArrayList<Hole> getHoles() {
+        return holes;
+    }
 }
+
+

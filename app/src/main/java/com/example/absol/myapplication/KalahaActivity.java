@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class KalahaActivity extends AppCompatActivity {
 
+public class KalahaActivity extends AppCompatActivity {
+Player playerOne = new Player();
+Player playerTwo = new Player();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +31,15 @@ public class KalahaActivity extends AppCompatActivity {
         ImageButton playerOneNest = (ImageButton) findViewById(R.id.playerOneNest);
         ImageButton playerTwoNest = (ImageButton) findViewById(R.id.playerTwoNest);
 
+
     }
-
-
-
 
     public void test(View view) {
         ImageButton test = (ImageButton) findViewById(R.id.playerTwoNest);
         test.setBackgroundResource(R.drawable.hole);
     }
 
+    //on click metod, switch sats med case för varje hål, metod som hämtar hålets antal bollar
 
 }
 
