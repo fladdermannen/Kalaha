@@ -39,6 +39,12 @@ Player playerTwo = new Player();
         test.setBackgroundResource(R.drawable.hole);
     }
 
+    public void test2(View view) {
+        ImageButton test = (ImageButton) findViewById(R.id.playerTwoNest);
+        test.setBackgroundResource(R.drawable.hole);
+    }
+
+
     //on click metod, switch sats med case för varje hål, metod som hämtar hålets antal bollar
 
 }
