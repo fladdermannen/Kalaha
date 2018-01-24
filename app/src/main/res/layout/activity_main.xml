@@ -40,7 +40,8 @@
         android:layout_marginLeft="75dp"
         android:layout_marginStart="74dp"
         android:background="@drawable/yellowplay"
-        android:text="Rules" />
+        android:text="Rules"
+        android:onClick="showRules"/>
 </LinearLayout>
 
 

@@ -21,20 +21,11 @@ public class MainActivity extends AppCompatActivity {
         //myTextView.setText(blabla.getText());
         //myTextView.setTextSize(100);
         Intent myIntent = new Intent(this, KalahaActivity.class);
-
-
-
         startActivity(myIntent);
+    }
 
-        Button rulesBtn = (Button)findViewById(R.id.rulesBtn);
-        rulesBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(),RulesActivity.class);
-                startActivity(startIntent);
-            }
-        });
-
-
+    public void showRules(View view) {
+        Intent myIntent = new Intent(this, RulesActivity.class);
+        startActivity(myIntent);
     }
 }
