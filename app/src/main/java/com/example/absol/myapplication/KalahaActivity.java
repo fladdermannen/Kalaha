@@ -16,7 +16,7 @@ Player playerTwo = new Player();
         setContentView(R.layout.activity_display_message);
 
         // Åtkomst till alla knappar
-        //ImageButton playerOneHoleOne = (ImageButton) findViewById(R.id.playerOneHoleOne);
+        ImageButton playerOneHoleOne = (ImageButton) findViewById(R.id.playerOneHoleOne);
         ImageButton playerOneHoleTwo = (ImageButton) findViewById(R.id.playerOneHoleTwo);
         ImageButton playerOneHoleThree = (ImageButton) findViewById(R.id.playerOneHoleThree);
         ImageButton playerOneHoleFour = (ImageButton) findViewById(R.id.playerOneHoleFour);
@@ -37,6 +37,7 @@ Player playerTwo = new Player();
     public void test(View view) {
         ImageButton test = (ImageButton) findViewById(R.id.playerTwoNest);
         test.setBackgroundResource(R.drawable.hole);
+
     }
 
 
