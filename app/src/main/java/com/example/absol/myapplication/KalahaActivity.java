@@ -2,7 +2,6 @@ package com.example.absol.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 
@@ -52,12 +51,14 @@ public class KalahaActivity extends AppCompatActivity {
     }
 
 
-    // PLAYER ETT
-    public void test(View view) {
+    void tmp(View view, int player)
+    {
         //view.setBackgroundResource(R.drawable.hole);
-        if(turn % 2 == 0) {
+        if((turn % 2 == 0 && player == 1) || (turn % 2 != 0 && player == 2)) {
             int balls = ((Hole) view).getBalls();
             int position = board.getHoles().indexOf(view);
+            if (balls == 0)
+                return;
 
             ((Hole) view).clearBalls();
             board.moveBalls(balls, position);
@@ -68,26 +69,16 @@ public class KalahaActivity extends AppCompatActivity {
             board.updateAllBalls();
             turn++;
         }
-
     }
 
-    // PLAYER TVÅÅ
+    // PLAYER ETT
+    public void test(View view) {
+      tmp(view, 1);
+    }
+
+    // PLAYER TVÅ
     public void test2(View view) {
-        //view.setBackgroundResource(R.drawable.hole);
-
-        if(turn % 2 != 0) {
-            int balls = ((Hole) view).getBalls();
-            int position = board.getHoles().indexOf(view);
-
-            ((Hole) view).clearBalls();
-            board.moveBalls(balls, position);
-
-            playerOne.setScore(board.getHoles().get(6).getBalls());
-            playerTwo.setScore(board.getHoles().get(13).getBalls());
-
-            board.updateAllBalls();
-            turn++;
-        }
+        tmp(view, 2);
     }
 
 }

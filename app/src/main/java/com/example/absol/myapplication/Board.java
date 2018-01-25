@@ -38,6 +38,7 @@ public class Board {
 
         if(balls == 0) {
             Log.d("TAG empty", "Hole is empty fuck off");
+
         }
         if(balls != 0) {
             for (int i = 0; i < balls; i++) {
