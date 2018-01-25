@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Kalahablab.iml" filepath="$PROJECT_DIR$/Kalahablab.iml" />
+      <module fileurl="file://C:\Users\absol\AndroidStudioProjects\MyApplication\Kalahablab.iml" filepath="C:\Users\absol\AndroidStudioProjects\MyApplication\Kalahablab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
       <module fileurl="file://C:\Users\oscar\AndroidStudioProjects\Kalahablab\MyApplication.iml" filepath="C:\Users\oscar\AndroidStudioProjects\Kalahablab\MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
