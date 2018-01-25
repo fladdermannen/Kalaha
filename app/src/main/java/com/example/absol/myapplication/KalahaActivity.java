@@ -11,6 +11,7 @@ public class KalahaActivity extends AppCompatActivity {
     Player playerOne = new Player();
     Player playerTwo = new Player();
     Board board = new Board();
+    int turn = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,48 +51,43 @@ public class KalahaActivity extends AppCompatActivity {
         board.setHoles(playerTwoNest);
     }
 
+
+    // PLAYER ETT
     public void test(View view) {
         //view.setBackgroundResource(R.drawable.hole);
+        if(turn % 2 == 0) {
+            int balls = ((Hole) view).getBalls();
+            int position = board.getHoles().indexOf(view);
 
-        Log.d("TAG", "" +  ((Hole) view).getBalls());
-        int balls = ((Hole) view).getBalls();
-        Log.d("TAG Position", "" + board.getHoles().indexOf(view));
-        int position = board.getHoles().indexOf(view);
-        int secondLap = 0;
-        int thirdLap = 0;
-        ((Hole) view).clearBalls();
+            ((Hole) view).clearBalls();
+            board.moveBalls(balls, position);
 
-        if(balls == 0) {
-            Log.d("TAG empty", "Hole is empty fuck off");
-        }
-        if(balls != 0) {
-            for (int i = 0; i < balls; i++) {
-                if (position < 13) {
-                    board.getHoles().get(position + 1).addBall();
-                    Log.d("TAG added", "Added ball at position " + (position+1));
-                    position++;
-                }else if (position >= 13 && position < 26) {
-                    board.getHoles().get(secondLap).addBall();
-                    Log.d("TAG Varv 2", "Added ball at position " + secondLap);
-                    secondLap++;
-                    position++;
+            playerOne.setScore(board.getHoles().get(6).getBalls());
+            playerTwo.setScore(board.getHoles().get(13).getBalls());
 
-                }else if (position >= 26){
-                    board.getHoles().get(thirdLap).addBall();
-                    Log.d("TAG Varv 3", "Added ball at position " + thirdLap);
-                    thirdLap++;
-                }
-
-            }
+            board.updateAllBalls();
+            turn++;
         }
 
+    }
 
-        playerOne.setScore(board.getHoles().get(6).getBalls());
-        playerTwo.setScore(board.getHoles().get(13).getBalls());
-        Log.d("TAG Scores", "Player 1 score is " + playerOne.getScore() +
-                " and Player 2 score is " + playerTwo.getScore());
+    // PLAYER TVÅ
+    public void test2(View view) {
+        //view.setBackgroundResource(R.drawable.hole);
 
-        board.updateAllBalls();
+        if(turn % 2 != 0) {
+            int balls = ((Hole) view).getBalls();
+            int position = board.getHoles().indexOf(view);
+
+            ((Hole) view).clearBalls();
+            board.moveBalls(balls, position);
+
+            playerOne.setScore(board.getHoles().get(6).getBalls());
+            playerTwo.setScore(board.getHoles().get(13).getBalls());
+
+            board.updateAllBalls();
+            turn++;
+        }
     }
 
 }
