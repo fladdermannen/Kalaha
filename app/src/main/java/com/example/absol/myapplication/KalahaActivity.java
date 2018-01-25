@@ -71,7 +71,7 @@ public class KalahaActivity extends AppCompatActivity {
 
     }
 
-    // PLAYER TVÅ
+    // PLAYER TVÅÅ
     public void test2(View view) {
         //view.setBackgroundResource(R.drawable.hole);
 
