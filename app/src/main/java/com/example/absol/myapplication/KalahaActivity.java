@@ -57,7 +57,6 @@ public class KalahaActivity extends AppCompatActivity {
         int balls = ((Hole) view).getBalls();
         Log.d("TAG Position", "" + board.getHoles().indexOf(view));
         int position = board.getHoles().indexOf(view);
-        int ballCounter = 0;
         int secondLap = 0;
         int thirdLap = 0;
         ((Hole) view).clearBalls();
@@ -71,25 +70,28 @@ public class KalahaActivity extends AppCompatActivity {
                     board.getHoles().get(position + 1).addBall();
                     Log.d("TAG added", "Added ball at position " + (position+1));
                     position++;
-                    ballCounter++;
                 }else if (position >= 13 && position < 26) {
                     board.getHoles().get(secondLap).addBall();
+                    Log.d("TAG Varv 2", "Added ball at position " + secondLap);
                     secondLap++;
                     position++;
-                    Log.d("TAG Varv 2", "Added ball at position " + secondLap);
+
                 }else if (position >= 26){
                     board.getHoles().get(thirdLap).addBall();
-                    thirdLap++;
                     Log.d("TAG Varv 3", "Added ball at position " + thirdLap);
+                    thirdLap++;
                 }
 
             }
         }
 
+
         playerOne.setScore(board.getHoles().get(6).getBalls());
         playerTwo.setScore(board.getHoles().get(13).getBalls());
         Log.d("TAG Scores", "Player 1 score is " + playerOne.getScore() +
                 " and Player 2 score is " + playerTwo.getScore());
+
+        board.updateAllBalls();
     }
 
 }
