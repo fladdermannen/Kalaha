@@ -53,7 +53,6 @@ public class KalahaActivity extends AppCompatActivity {
 
     void tmp(View view, int player)
     {
-        //view.setBackgroundResource(R.drawable.hole);
         if((turn % 2 == 0 && player == 1) || (turn % 2 != 0 && player == 2)) {
             int balls = ((Hole) view).getBalls();
             int position = board.getHoles().indexOf(view);
@@ -61,13 +60,12 @@ public class KalahaActivity extends AppCompatActivity {
                 return;
 
             ((Hole) view).clearBalls();
-            board.moveBalls(balls, position);
+            turn += board.moveBalls(balls, position, player);
 
             playerOne.setScore(board.getHoles().get(6).getBalls());
             playerTwo.setScore(board.getHoles().get(13).getBalls());
 
             board.updateAllBalls();
-            turn++;
         }
     }
 

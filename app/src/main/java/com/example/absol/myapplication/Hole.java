@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
+import android.util.Log;
 
 /**
  * Created by absol on 2018-01-18.
@@ -36,7 +37,24 @@ public class Hole extends AppCompatImageButton {
     }
 
     public void addBall() {
+
         this.balls += 1;
+    }
+
+    public void addBalls(int amount) {
+
+        this.balls += amount;
+    }
+
+    public void skipHole(int player, Board board) {
+        if (player == 1) {
+            board.getHoles().get(0).addBall();
+            Log.d("TAG", "Added ball at position 0");
+        }
+        if (player == 2) {
+            board.getHoles().get(7).addBall();
+            Log.d("TAG", "Added ball at position 7");
+        }
     }
 
     public void clearBalls() {
