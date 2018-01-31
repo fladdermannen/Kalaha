@@ -66,6 +66,8 @@ public class KalahaActivity extends AppCompatActivity {
             playerTwo.setScore(board.getHoles().get(13).getBalls());
 
             board.updateAllBalls();
+
+            //Gameover funktion
         }
     }
 

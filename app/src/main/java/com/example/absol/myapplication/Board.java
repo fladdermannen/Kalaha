@@ -3,8 +3,11 @@ package com.example.absol.myapplication;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class Board {
+
+
 
     private ArrayList<Hole> holes = new ArrayList<>();
 
@@ -31,6 +34,7 @@ public class Board {
             hole.updateImage();
         }
     }
+
 
     public int moveBalls(int balls, int position, int player) {
         int secondLap = 0;
