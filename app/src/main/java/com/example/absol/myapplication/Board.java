@@ -1,5 +1,6 @@
 package com.example.absol.myapplication;
 
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -80,9 +81,9 @@ public class Board {
                     } else {
                         this.getHoles().get(secondLap).addBall();
                         Log.d("TAG Varv 2", "Added ball at position " + secondLap);
-                        if (player == 1 && secondLap == 5 && ballCounter == 1)
+                        if (player == 1 && secondLap == 5 && ballCounter == 0)
                             return 0;
-                        if (player == 2 && secondLap == 12 && ballCounter == 1)
+                        if (player == 2 && secondLap == 12 && ballCounter == 0)
                             return 0;
                         finalPosition = secondLap;
                         secondLap++;
@@ -91,13 +92,13 @@ public class Board {
                 }else if (secondLap > 13){
                     this.getHoles().get(thirdLap).addBall();
                     Log.d("TAG Varv 3", "Added ball at position " + thirdLap);
-                    if(player == 1 && thirdLap == 5 && ballCounter == 1)
+                    if(player == 1 && thirdLap == 5 && ballCounter == 0)
                         return 0;
-                    if(player == 2 && thirdLap == 12 && ballCounter == 1)
+                    if(player == 2 && thirdLap == 12 && ballCounter == 0)
                         return 0;
                     finalPosition = thirdLap;
                     thirdLap++;
-                    ballCounter--;
+
                 }
             }
         }

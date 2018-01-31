@@ -3,29 +3,63 @@ package com.example.absol.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+
 
 public class MainActivity extends AppCompatActivity {
-    //public static final String EXTRA_MESSAGE = "com.example.blabla.MESSAGE";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        FlipImage yellowBtn = (FlipImage) findViewById(R.id.playBtn);
+        yellowBtn.defaultImage = (R.drawable.yellowplay);
+        yellowBtn.onDownImage = (R.drawable.yellowplaytwo);
+        yellowBtn.activity = KalahaActivity.class;
+
+
+        FlipImage yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
+        yellowBtn2.defaultImage = (R.drawable.yellowrules);
+        yellowBtn2.onDownImage = (R.drawable.yellowplaytworules);
+        yellowBtn2.activity = RulesActivity.class;
+
+
+
     }
 
-    public void printMessage(View view) {
-        //EditText blabla = (EditText) findViewById(R.id.editText);
-        //TextView myTextView = (TextView) findViewById(R.id.textView);
-        //myTextView.setText(blabla.getText());
-        //myTextView.setTextSize(100);
-        Intent myIntent = new Intent(this, KalahaActivity.class);
-        startActivity(myIntent);
-    }
 
-    public void showRules(View view) {
-        Intent myIntent = new Intent(this, RulesActivity.class);
-        startActivity(myIntent);
+
+
+    /*
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getActionMasked();
+
+
+        if (action == MotionEvent.ACTION_UP) {
+            Intent myIntent= new Intent(MainActivity.this, KalahaActivity.class);
+            startActivity(myIntent);
+
+
+        }
+        return true;
     }
+*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
