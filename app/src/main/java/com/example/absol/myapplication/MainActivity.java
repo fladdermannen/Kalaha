@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         yellowBtn.activity = KalahaActivity.class;
 
 
+
         FlipImage yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
         yellowBtn2.defaultImage = (R.drawable.yellowrules);
         yellowBtn2.onDownImage = (R.drawable.yellowplaytworules);
