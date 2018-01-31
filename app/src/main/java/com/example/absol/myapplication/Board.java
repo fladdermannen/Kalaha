@@ -1,6 +1,5 @@
 package com.example.absol.myapplication;
 
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -58,14 +57,15 @@ public class Board {
                         finalPosition = 7;
                     } else {
                         this.getHoles().get(position + 1).addBall();
-                        Log.d("TAG added", "Added ball at position " + (position + 1));
-                        if (player == 1 && position == 5 && ballCounter == 1)
-                            return 0;
-                        if (player == 2 && position == 12 && ballCounter == 1)
-                            return 0;
-                        finalPosition = position+1;
+                        Log.d("TAG added", "Added ball at position " + (position+1));
                         position++;
+                        finalPosition = position;
                         ballCounter--;
+
+                        if (player == 1 && position == 6 && ballCounter == 0)
+                            return 0;
+                        if (player == 2 && position == 13 && ballCounter == 0)
+                            return 0;
                     }
                 }else if (position >= 13 && secondLap <= 13) {
                     if (player == 1 && secondLap == 13) {
@@ -80,32 +80,46 @@ public class Board {
                         finalPosition = 7;
                     } else {
                         this.getHoles().get(secondLap).addBall();
+                        ballCounter--;
                         Log.d("TAG Varv 2", "Added ball at position " + secondLap);
-                        if (player == 1 && secondLap == 5 && ballCounter == 0)
+                        if (player == 1 && secondLap == 6 && ballCounter == 0)
                             return 0;
-                        if (player == 2 && secondLap == 12 && ballCounter == 0)
+                        if (player == 2 && secondLap == 13 && ballCounter == 0)
                             return 0;
                         finalPosition = secondLap;
                         secondLap++;
-                        ballCounter--;
+
                     }
                 }else if (secondLap > 13){
                     this.getHoles().get(thirdLap).addBall();
                     Log.d("TAG Varv 3", "Added ball at position " + thirdLap);
-                    if(player == 1 && thirdLap == 5 && ballCounter == 0)
+                    if(player == 1 && thirdLap == 5 && ballCounter == 1)
                         return 0;
-                    if(player == 2 && thirdLap == 12 && ballCounter == 0)
+                    if(player == 2 && thirdLap == 12 && ballCounter == 1)
                         return 0;
                     finalPosition = thirdLap;
                     thirdLap++;
-
+                    ballCounter--;
                 }
             }
         }
+
         ruleTakeBalls(finalPosition, player);
-        Log.d("TAG", "Final position is " + finalPosition);
+        Log.d("TAG", "Final position is " + finalPosition + "position is " + position + " secondlap is " + secondLap);
         return 1;
     }
+
+    private boolean ruleGoAgain (int finalPosition, int player) {
+
+        if(player == 1 && finalPosition ==  6)
+            return true;
+
+        if(player == 2 && finalPosition == 13)
+            return true;
+
+        return false;
+    }
+
 
     private void ruleTakeBalls(int finalPosition, int player) {
         int checkFinalPosition = this.getHoles().get(finalPosition).getBalls();
@@ -166,5 +180,6 @@ public class Board {
         this.getHoles().get(oppositeSideHole).clearBalls();
         this.getHoles().get(finalPosition).addBalls(takeBallsAmount);
 
+        Log.d("TAG", "Took balls from " + oppositeSideHole + " to " + finalPosition);
     }
 }
