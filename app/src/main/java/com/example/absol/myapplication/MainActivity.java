@@ -1,5 +1,6 @@
 package com.example.absol.myapplication;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,12 +17,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
 
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
         FlipImage yellowBtn = (FlipImage) findViewById(R.id.playBtn);
         yellowBtn.defaultImage = (R.drawable.yellowplay);
         yellowBtn.onDownImage = (R.drawable.yellowplaytwo);
         yellowBtn.activity = KalahaActivity.class;
-
 
 
         FlipImage yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
