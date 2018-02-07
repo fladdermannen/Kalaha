@@ -1,13 +1,35 @@
 <resources>
     <string name="app_name">Kalaha</string>
-    <string name="hint">Write text</string>
-    <string name="click_me">CLICK ME</string>
+
     <string name="background">Wooden background</string>
     <string name="rulesHeader">Rules</string>
-    <string name="rules">Bla bla bla bla bla bla bla bla bla bla bla bal bal bla bal bal bal bal
-    bla bla bla bla bla bal bla blabla bla bla blaba l bajl albja ldfjadij diofj aiodjiaj
-    iosfjioajfoiasjdfioa sjfio jfiaso fjasiof jsiofj iasfj sfj sfj aiojf sdfj asiofjisfjsiod fjaiosd
-    aiosjdf iasjdfio jasfio jsfiojasfi jsfo jasidfj iasfj safj asiofjs iofj asifjsdo as</string>
+    <string name="rules">
+1.The objective of the game is to collect as many playing pieces as possible before one of the players
+        clears their side of all the playing pieces.
+        The row of six cups in front and closest to each player are theirs.
+        2.
+        Start by placing four stones in each small cup. You have 48 stones total, and 12 cups, which means
+        there should be four stones in each cup. Each player starts off with a total of 24 stones or beads.
+        3.Your mancala is the big basin to your right. Also called a "store," it is where captured pieces are placed.
+        4.
+        Choose which player is going to go first. Because theres not really an advantage to going first, flip a
+        coin or choose a person at random.
+        5.Going counter-clockwise, the beginning player takes all four stones in one cup on their side
+        and places one stone each in any four adjacent cups. Players can only grab stones that are on their side.
+        6.
+        Players can put stones in their own Mancala, but not in their opponents Mancala. If you have enough stones
+        to reach your opponents Mancala, skip it.
+        7.Take turns picking up stones in any cup and placing them
+        8.If your last stone falls into your Mancala, take another turn.
+        9.If the last stone you drop is in an empty cup on your side, capture that piece along with any pieces in
+        the hole directly opposite. Captured pieces go into your Mancala store.
+        10.When one players six cups are completely empty, the game ends. The player who still has stones left
+        in their cups captures those stones and puts them in their Mancala. Players compare the number of stones
+        in their Mancala. The player with the most stones wins.
+
+
+
+    </string>
 
 
 

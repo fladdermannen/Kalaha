@@ -41,19 +41,33 @@
             android:src="@drawable/rules" />
 
 
+
+
     </LinearLayout>
 
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/buttonSwe"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/buttonEng"
+        android:layout_toStartOf="@+id/buttonEng"
+        android:layout_weight="1"
+        android:background="@drawable/swe"
+        android:text="swe"
+        android:onClick="swesub"/>
+
+    <Button
+        android:id="@+id/buttonEng"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginTop="20dp"
-        android:text="sv-en" />
-
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_weight="1"
+        android:background="@drawable/eng"
+        android:text="engsub" />
 
 </RelativeLayout>

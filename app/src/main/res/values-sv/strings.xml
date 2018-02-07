@@ -1,13 +1,24 @@
 <resources>
     <string name="app_name">Kalaha</string>
-    <string name="hint">skriv text</string>
-    <string name="click_me">Klicka</string>
     <string name="background">Wooden background</string>
-    <string name="rulesHeader">regler</string>
-    <string name="rules">swe Bla bla bla bla bla bla bla bla bla bla bla bal bal bla bal bal bal bal
-    bla bla bla bla bla bal bla blabla bla bla blaba l bajl albja ldfjadij diofj aiodjiaj
-    iosfjioajfoiasjdfioa sjfio jfiaso fjasiof jsiofj iasfj sfj sfj aiojf sdfj asiofjisfjsiod fjaiosd
-    aiosjdf iasjdfio jasfio jsfiojasfi jsfo jasidfj iasfj safj asiofjs iofj asifjsdo as</string>
+    <string name="rulesHeader">Regler</string>
+    <string name="rules">Spelets mål
+
+Det gäller att flytta stenar från sin egen sidas hål (ambo) till sin Kalaha (det större hålet på höger kortsida). Det gäller att få så många stenar som möjligt i sin egen Kalaha.
+
+Förberedelser
+
+Ställ spelplanen med kortsidorna till höger och vänster mellan spelarna. Samtliga kulor läggs ut i ambona, lika många i varje (vanligtvis 3), ej i Kalaha. Ambona på sidan närmast spelaren tillhör den spelaren.
+
+Spelets gång
+
+Bestäm genom t. ex. lottdragning vem som ska börja. Ett drag utförs genom att den spelaren som ska börja väljer en ambo på sin egen sida. Samtliga stenar lyfts ur ambon och fördelas en efter en åt höger i varje ambo, även sin egen Kalaha om det går, men ej i motspelares Kalaha som man hoppar över. Om den sista stenen hamnar i den egna Kalaha får spelaren göra ytterligare ett drag. Om den sista kulan hamnar i en tom ambo på den egna sidan och det finns minst en kula i ambon mitt emot, avslutas draget med att både den sista stenen och samtliga stenar i ambon mitt emot läggs direkt i spelarens egen Kalaha.
+
+Spelets slut
+
+Spelet är slut när en spelare inte längre har något drag (stenar kvar att flytta), motspelaren får då flytta eventuellt alla resterande stenar i sina ambos till sin egen Kalaha. Vinnare är den spelare som har flest stenar i sin Kalaha. Det är inte säkert att den spelare som först har tömt ambona är vinnare, det kan också bli oavgjort.
+
+</string>
 
 
 </resources>

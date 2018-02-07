@@ -25,7 +25,7 @@
             android:id="@+id/rubrik"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kalaha Rules"
+            android:text="@string/rulesHeader"
             android:textAlignment="center"
             android:textColor="@android:color/holo_orange_light"
             android:textSize="40sp" />
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="@string/rules"
             android:layout_below="@id/rubrik"
-            android:textSize="40dp"
+            android:textSize="20dp"
 
             />
 
