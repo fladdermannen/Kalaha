@@ -3,6 +3,7 @@ package com.example.absol.myapplication;
 import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 
@@ -12,6 +13,7 @@ public class KalahaActivity extends AppCompatActivity {
     Player playerTwo = new Player();
     Board board = new Board();
     int turn = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +77,14 @@ public class KalahaActivity extends AppCompatActivity {
             playerOne.setScore(board.getHoles().get(6).getBalls());
             playerTwo.setScore(board.getHoles().get(13).getBalls());
 
-            board.updateAllBalls();
-
             //Gameover funktion
+            if(board.gameOver()) {
+                playerOne.setScore(board.getHoles().get(6).getBalls());
+                playerTwo.setScore(board.getHoles().get(13).getBalls());
+                Log.d("Gameover", "Game over. Score is: " + playerOne.getScore() + " - " + playerTwo.getScore());
+            }
+
+            board.updateAllBalls();
         }
     }
 

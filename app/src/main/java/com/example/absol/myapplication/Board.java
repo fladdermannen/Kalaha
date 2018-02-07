@@ -1,9 +1,13 @@
 package com.example.absol.myapplication;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Handler;
 
 public class Board {
 
@@ -23,11 +27,36 @@ public class Board {
         return holes;
     }
 
-    public void getAllBalls() {
-        for (Hole hole : holes) {
-            Log.d("TAG all balls", "" + hole.getBalls());
-        }
+/*  -----------DELAY FUNKTION INTE JÄTTEBRA LOL------------
+    private int i = 0;
+    private int i2 = 0;
+    private int i3= 0;
+    public void updateMovedBalls(int balls, final int position) {
+
+        new CountDownTimer((300*(balls+1)),300) {
+            public void onTick(long millisUntilFinished) {
+                if((position+i) <= 13) {
+                    holes.get(position + i).updateImage();
+                    i++;
+                } else if((position+i) > 13 && i2 < 13) {
+                    holes.get(i2).updateImage();
+                    i2++;
+                } else if(i2 > 13) {
+                    holes.get(i3).updateImage();
+                    i3++;
+                }
+            }
+            public void onFinish() {
+                Log.d("Tag", "Klart");
+                i = 0;
+                i2 = 0;
+                i3 = 0;
+                updateAllBalls();
+            }
+        }.start();
+
     }
+    */
 
     public void updateAllBalls() {
         for (Hole hole : holes) {
@@ -113,17 +142,6 @@ public class Board {
         return 1;
     }
 
-    private boolean ruleGoAgain (int finalPosition, int player) {
-
-        if(player == 1 && finalPosition ==  6)
-            return true;
-
-        if(player == 2 && finalPosition == 13)
-            return true;
-
-        return false;
-    }
-
 
     private void ruleTakeBalls(int finalPosition, int player) {
         int checkFinalPosition = this.getHoles().get(finalPosition).getBalls();
@@ -181,9 +199,57 @@ public class Board {
         }
 
         int takeBallsAmount = this.getHoles().get(oppositeSideHole).getBalls();
-        this.getHoles().get(oppositeSideHole).clearBalls();
-        this.getHoles().get(finalPosition).addBalls(takeBallsAmount);
+        if(takeBallsAmount>0) {
+            this.getHoles().get(oppositeSideHole).clearBalls();
+            this.getHoles().get(finalPosition).clearBalls();
+            if (player == 1)
+                this.getHoles().get(6).addBalls(takeBallsAmount + 1);
+            else if (player == 2)
+                this.getHoles().get(13).addBalls(takeBallsAmount + 1);
+        }
+        //this.getHoles().get(finalPosition).addBalls(takeBallsAmount);
 
         Log.d("TAG", "Took balls from " + oppositeSideHole + " to " + finalPosition);
+    }
+
+    public boolean gameOver() {
+        int hole1 = this.getHoles().get(0).getBalls();
+        int hole2 = this.getHoles().get(1).getBalls();
+        int hole3 = this.getHoles().get(2).getBalls();
+        int hole4 = this.getHoles().get(3).getBalls();
+        int hole5 = this.getHoles().get(4).getBalls();
+        int hole6 = this.getHoles().get(5).getBalls();
+        int all1 = (hole1+hole2+hole3+hole4+hole5+hole6);
+
+        int hole7 = this.getHoles().get(7).getBalls();
+        int hole8 = this.getHoles().get(8).getBalls();
+        int hole9 = this.getHoles().get(9).getBalls();
+        int hole10 = this.getHoles().get(10).getBalls();
+        int hole11 = this.getHoles().get(11).getBalls();
+        int hole12 = this.getHoles().get(12).getBalls();
+        int all2 = (hole7+hole8+hole9+hole10+hole11+hole12);
+
+        if(all1==0) {
+            this.getHoles().get(13).addBalls(all2);
+            this.getHoles().get(7).clearBalls();
+            this.getHoles().get(8).clearBalls();
+            this.getHoles().get(9).clearBalls();
+            this.getHoles().get(10).clearBalls();
+            this.getHoles().get(11).clearBalls();
+            this.getHoles().get(12).clearBalls();
+            return true;
+        }
+        else if(all2==0) {
+            this.getHoles().get(6).addBalls(all1);
+            this.getHoles().get(0).clearBalls();
+            this.getHoles().get(1).clearBalls();
+            this.getHoles().get(2).clearBalls();
+            this.getHoles().get(3).clearBalls();
+            this.getHoles().get(4).clearBalls();
+            this.getHoles().get(5).clearBalls();
+            return true;
+        }
+
+        return false;
     }
 }
