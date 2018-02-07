@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">Min app lol</string>
-    <string name="hint">Skriv text</string>
-    <string name="click_me">Klicka mig</string>
-
-
+    <string name="app_name">Kalaha</string>
+    <string name="hint">skriv text</string>
+    <string name="click_me">Klicka</string>
+    <string name="background">Wooden background</string>
+    <string name="rulesHeader">regler</string>
+    <string name="rules">swe Bla bla bla bla bla bla bla bla bla bla bla bal bal bla bal bal bal bal
+    bla bla bla bla bla bal bla blabla bla bla blaba l bajl albja ldfjadij diofj aiodjiaj
+    iosfjioajfoiasjdfioa sjfio jfiaso fjasiof jsiofj iasfj sfj sfj aiojf sdfj asiofjisfjsiod fjaiosd
+    aiosjdf iasjdfio jasfio jsfiojasfi jsfo jasidfj iasfj safj asiofjs iofj asifjsdo as</string>
 
 
 </resources>

@@ -14,6 +14,12 @@
         android:background="@drawable/woodenplank"
         android:contentDescription="@string/background" />
 
+    <com.example.absol.myapplication.FlipImage
+        android:id="@+id/backgroundImgtwo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wood"
+        android:contentDescription="@string/background" />
 
     <TextView
         android:id="@+id/displayText"
@@ -21,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/app_name"
+        android:text="kalaha"
         android:textSize="32sp" />
 
     <com.example.absol.myapplication.Hole

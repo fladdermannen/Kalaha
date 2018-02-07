@@ -7,9 +7,6 @@ import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.util.Log;
 
-/**
- * Created by absol on 2018-01-18.
- */
 
 
 public class Hole extends AppCompatImageButton {

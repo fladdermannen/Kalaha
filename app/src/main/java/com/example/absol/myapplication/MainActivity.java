@@ -36,11 +36,7 @@ public class MainActivity extends AppCompatActivity {
         yellowBtn2.onDownImage = (R.drawable.rulessmall);
         yellowBtn2.activity = RulesActivity.class;
 
-
-
     }
-
-
 
 
     /*

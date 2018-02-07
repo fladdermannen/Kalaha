@@ -21,21 +21,29 @@
             android:layout_alignParentBottom="false"
             android:layout_centerHorizontal="true"
             app:srcCompat="@drawable/wood" />
+        <TextView
+            android:id="@+id/rubrik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kalaha Rules"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="40sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rules"
+            android:layout_below="@id/rubrik"
+            android:textSize="40dp"
+
+            />
 
 
-        </RelativeLayout>
+
+    </RelativeLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/editText4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:inputType="textPersonName"
-        android:text="Kalaha Rules"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_light"
-        android:textSize="40sp" />
 
 
 </RelativeLayout>
