@@ -72,10 +72,14 @@ public class KalahaActivity extends AppCompatActivity {
                 return;
 
             ((Hole) view).clearBalls();
-            turn += board.moveBalls(balls, position, player);
+            ((Hole) view).updateImage();
+
+            turn += board.updateMovedBalls(balls, position, player);
+            Log.d("TAG", "turn is " + turn);
 
             playerOne.setScore(board.getHoles().get(6).getBalls());
             playerTwo.setScore(board.getHoles().get(13).getBalls());
+            Log.d("TAG", "Score is " + playerOne.getScore() + " - " + playerTwo.getScore());
 
             //Gameover funktion
             if(board.gameOver()) {
@@ -84,7 +88,7 @@ public class KalahaActivity extends AppCompatActivity {
                 Log.d("Gameover", "Game over. Score is: " + playerOne.getScore() + " - " + playerTwo.getScore());
             }
 
-            board.updateAllBalls();
+
         }
     }
 
