@@ -29,7 +29,7 @@
             android:layout_marginBottom="6dp"
             android:layout_marginEnd="121dp"
             android:layout_marginRight="121dp"
-            android:src="@drawable/yellowplay" />
+            android:src="@drawable/playbig" />
 
         <com.example.absol.myapplication.FlipImage
             android:id="@+id/rulesBtn"
@@ -38,7 +38,7 @@
             android:layout_marginBottom="70dp"
             android:layout_marginLeft="74dp"
             android:layout_marginStart="74dp"
-            android:src="@drawable/rules" />
+            android:src="@drawable/rulesbig" />
 
 
 
