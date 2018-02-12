@@ -65,7 +65,8 @@ public class KalahaActivity extends AppCompatActivity {
 
     void tmp(View view, int player)
     {
-        if((turn % 2 == 0 && player == 1) || (turn % 2 != 0 && player == 2)) {
+        if(!board.getLockStatus() && ( (turn % 2 == 0 && player == 1) || (turn % 2 != 0 && player == 2))) {
+            board.setLock();
             int balls = ((Hole) view).getBalls();
             int position = board.getHoles().indexOf(view);
             if (balls == 0)
@@ -74,15 +75,17 @@ public class KalahaActivity extends AppCompatActivity {
             ((Hole) view).clearBalls();
             ((Hole) view).updateImage();
 
+            Log.d("TAG", "turn is first " + turn);
             turn += board.updateMovedBalls(balls, position, player);
-            Log.d("TAG", "turn is " + turn);
+            Log.d("TAG", "turn is after " + turn);
+
 
             playerOne.setScore(board.getHoles().get(6).getBalls());
             playerTwo.setScore(board.getHoles().get(13).getBalls());
             Log.d("TAG", "Score is " + playerOne.getScore() + " - " + playerTwo.getScore());
 
             //Gameover funktion
-            if(board.gameOver()) {
+            if(board.gameOver(player)) {
                 playerOne.setScore(board.getHoles().get(6).getBalls());
                 playerTwo.setScore(board.getHoles().get(13).getBalls());
                 Log.d("Gameover", "Game over. Score is: " + playerOne.getScore() + " - " + playerTwo.getScore());

@@ -11,7 +11,17 @@ import java.util.logging.Handler;
 
 public class Board {
 
+    private boolean lock = false;
 
+    public void setLock() {
+        this.lock = true;
+    }
+    public void unLock() {
+        this.lock = false;
+    }
+    public boolean getLockStatus(){
+        return this.lock;
+    }
 
     private ArrayList<Hole> holes = new ArrayList<>();
 
@@ -32,72 +42,90 @@ public class Board {
     private int i2 = 0;
     private int i3= 0;
     private int finalPosition;
-    private boolean goAgain;
 
     public int updateMovedBalls(int balls, final int position, final int player) {
 
-        final Board board = this;
-        new CountDownTimer((300*(balls)),300) {
-            public void onTick(long millisUntilFinished) {
-                if (position+i < 13) {
-                    if(player == 1 && position+i == 12) {
-                        board.getHoles().get(position+i).skipHole(player, board);
-                        board.getHoles().get(0).updateImage();
-                        i++;
-                        i2++;
-                        finalPosition = 0;
-                    } else if (player == 2 && position+i == 5) {
-                        board.getHoles().get(position+i).skipHole(player, board);
-                        board.getHoles().get(7).updateImage();
-                        i++;
-                        finalPosition = 7;
-                    } else {
-                        board.getHoles().get((position+i) + 1).addBall();
-                        board.getHoles().get((position+i) + 1).updateImage();
-                        Log.d("TAG added", "Added ball at position " + ((position+i) + 1));
-                        i++;
-                        finalPosition = position+i;
 
-                    }
-                }else if (position+i >= 13 && i2 <= 13) {
-                    if (player == 1 && i2 == 13) {
-                        board.getHoles().get(i2).skipHole(player,board);
-                        board.getHoles().get(0).updateImage();
+            final Board board = this;
+
+            int finalPositionAlpha = -1;
+            if (position + balls == 6) {
+                finalPositionAlpha = 6;
+            } else if (position + balls == 13) {
+                finalPositionAlpha = 13;
+            } else if (position + balls + 1 == 20) {
+                finalPositionAlpha = 6;
+            } else if (position + balls + 1 == 27) {
+                finalPositionAlpha = 13;
+            } else if (position + balls + 2 == 34) {
+                finalPositionAlpha = 6;
+            } else if (position + balls + 2 == 41) {
+                finalPositionAlpha = 13;
+            }
+
+            new CountDownTimer((300 * (balls)), 300) {
+                public void onTick(long millisUntilFinished) {
+                    if (position + i < 13) {
+                        if (player == 1 && position + i == 12) {
+                            board.getHoles().get(position + i).skipHole(player, board);
+                            board.getHoles().get(0).updateImage();
+                            i++;
+                            i2++;
+                            finalPosition = 0;
+                        } else if (player == 2 && position + i == 5) {
+                            board.getHoles().get(position + i).skipHole(player, board);
+                            board.getHoles().get(7).updateImage();
+                            i++;
+                            finalPosition = 7;
+                        } else {
+                            board.getHoles().get((position + i) + 1).addBall();
+                            board.getHoles().get((position + i) + 1).updateImage();
+                            Log.d("TAG added", "Added ball at position " + ((position + i) + 1));
+                            i++;
+                            finalPosition = position + i;
+
+                        }
+                    } else if (position + i >= 13 && i2 <= 13) {
+                        if (player == 1 && i2 == 13) {
+                            board.getHoles().get(i2).skipHole(player, board);
+                            board.getHoles().get(0).updateImage();
+                            i3++;
+                            finalPosition = 0;
+                        } else if (player == 2 && i2 == 6) {
+                            board.getHoles().get(i2).skipHole(player, board);
+                            board.getHoles().get(7).updateImage();
+                            i2 += 2;
+                            finalPosition = 7;
+                        } else {
+                            board.getHoles().get(i2).addBall();
+                            board.getHoles().get(i2).updateImage();
+                            Log.d("TAG Varv 2", "Added ball at position " + i2);
+                            finalPosition = i2;
+                            i2++;
+                        }
+                    } else if (i2 > 13) {
+                        board.getHoles().get(i3).addBall();
+                        Log.d("TAG Varv 3", "Added ball at position " + i3);
+                        finalPosition = i3;
                         i3++;
-                        finalPosition = 0;
-                    } else if (player == 2 && i2 == 6) {
-                        board.getHoles().get(i2).skipHole(player, board);
-                        board.getHoles().get(7).updateImage();
-                        i2+=2;
-                        finalPosition = 7;
-                    } else {
-                        board.getHoles().get(i2).addBall();
-                        board.getHoles().get(i2).updateImage();
-                        Log.d("TAG Varv 2", "Added ball at position " + i2);
-                        finalPosition = i2;
-                        i2++;
                     }
-                }else if (i2 > 13){
-                    board.getHoles().get(i3).addBall();
-                    Log.d("TAG Varv 3", "Added ball at position " + i3);
-                    finalPosition = i3;
-                    i3++;
                 }
-            }
-            public void onFinish() {
-                Log.d("Tag", "Klart. Final position är " + finalPosition + " och player är " + player);
-                i = 0;
-                i2 = 0;
-                i3 = 0;
-                ruleTakeBalls(finalPosition,player);
-                updateAllBalls();
-                goAgain = ruleGoAgain(finalPosition,player);
-            }
-        }.start();
-        if(goAgain)
-            return 0;
-        else
-            return 1;
+
+                public void onFinish() {
+                    Log.d("Tag", "Klart. Final position är " + finalPosition + " och player är " + player);
+                    i = 0;
+                    i2 = 0;
+                    i3 = 0;
+                    ruleTakeBalls(finalPosition, player);
+                    updateAllBalls();
+                    unLock();
+                }
+            }.start();
+
+            if (ruleGoAgain(finalPositionAlpha, player))
+                return 0;
+            else
+                return 1;
     }
 
 
@@ -186,7 +214,9 @@ public class Board {
         Log.d("TAG", "Took balls from " + oppositeSideHole + " to " + finalPosition);
     }
 
-    public boolean gameOver() {
+
+    public boolean gameOver(int player) {
+
         int hole1 = this.getHoles().get(0).getBalls();
         int hole2 = this.getHoles().get(1).getBalls();
         int hole3 = this.getHoles().get(2).getBalls();
@@ -203,7 +233,7 @@ public class Board {
         int hole12 = this.getHoles().get(12).getBalls();
         int all2 = (hole7+hole8+hole9+hole10+hole11+hole12);
 
-        if(all1==0) {
+        if(all1==0 && player==1) {
             this.getHoles().get(13).addBalls(all2);
             this.getHoles().get(7).clearBalls();
             this.getHoles().get(8).clearBalls();
@@ -211,9 +241,10 @@ public class Board {
             this.getHoles().get(10).clearBalls();
             this.getHoles().get(11).clearBalls();
             this.getHoles().get(12).clearBalls();
+            this.updateAllBalls();
             return true;
         }
-        else if(all2==0) {
+        else if(all2==0 && player==2) {
             this.getHoles().get(6).addBalls(all1);
             this.getHoles().get(0).clearBalls();
             this.getHoles().get(1).clearBalls();
@@ -221,6 +252,7 @@ public class Board {
             this.getHoles().get(3).clearBalls();
             this.getHoles().get(4).clearBalls();
             this.getHoles().get(5).clearBalls();
+            this.updateAllBalls();
             return true;
         }
 
