@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Kalahabla2.iml" filepath="$PROJECT_DIR$/Kalahabla2.iml" />
       <module fileurl="file://C:\Users\absol\AndroidStudioProjects\MyApplication\.idea\Kalahabla2.iml" filepath="C:\Users\absol\AndroidStudioProjects\MyApplication\.idea\Kalahabla2.iml" />
       <module fileurl="file://C:\Users\absol\AndroidStudioProjects\MyApplication\Kalahabla2.iml" filepath="C:\Users\absol\AndroidStudioProjects\MyApplication\Kalahabla2.iml" />
       <module fileurl="file://C:\Users\absol\AndroidStudioProjects\MyApplication\Kalahablab.iml" filepath="C:\Users\absol\AndroidStudioProjects\MyApplication\Kalahablab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
-      <module fileurl="file://C:\Users\oscar\AndroidStudioProjects\Kalahabla2\MyApplication.iml" filepath="C:\Users\oscar\AndroidStudioProjects\Kalahabla2\MyApplication.iml" />
       <module fileurl="file://C:\Users\oscar\AndroidStudioProjects\Kalahablab\MyApplication.iml" filepath="C:\Users\oscar\AndroidStudioProjects\Kalahablab\MyApplication.iml" />
+      <module fileurl="file://C:\Users\oscar\AndroidStudioProjects\Kalahabla2\MyApplication.iml" filepath="C:\Users\oscar\AndroidStudioProjects\Kalahabla2\MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

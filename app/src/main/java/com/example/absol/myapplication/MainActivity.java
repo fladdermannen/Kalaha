@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
             actionBar.hide();
         }
         FlipImage yellowBtn = (FlipImage) findViewById(R.id.playBtn);
-        yellowBtn.defaultImage = (R.drawable.yellowplay);
-        yellowBtn.onDownImage = (R.drawable.yellowplaysmall);
+        yellowBtn.defaultImage = (R.drawable.playbig);
+        yellowBtn.onDownImage = (R.drawable.playsmall);
         yellowBtn.activity = KalahaActivity.class;
 
 
         FlipImage yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
-        yellowBtn2.defaultImage = (R.drawable.rules);
+        yellowBtn2.defaultImage = (R.drawable.rulesbig);
         yellowBtn2.onDownImage = (R.drawable.rulessmall);
         yellowBtn2.activity = RulesActivity.class;
 
