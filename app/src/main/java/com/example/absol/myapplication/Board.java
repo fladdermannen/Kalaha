@@ -4,14 +4,11 @@ import android.os.CountDownTimer;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
 
 public class Board {
 
     private boolean lock = false;
+    private boolean gameOverStatus = false;
 
     public void setLock() {
         this.lock = true;
@@ -21,6 +18,9 @@ public class Board {
     }
     public boolean getLockStatus(){
         return this.lock;
+    }
+    public boolean getGameOverStatus() {
+        return this.gameOverStatus;
     }
 
     private ArrayList<Hole> holes = new ArrayList<>();
@@ -37,10 +37,11 @@ public class Board {
         return holes;
     }
 
-  //-----------DELAY FUNKTION INTE JÄTTEBRA LOL------------
+  //-----------DELAY FUNKTION
     private int i = 0;
     private int i2 = 0;
-    private int i3= 0;
+    private int i3 = 0;
+    private int i4 = 0;
     private int finalPosition;
 
     public int updateMovedBalls(int balls, final int position, final int player) {
@@ -62,6 +63,9 @@ public class Board {
             } else if (position + balls + 2 == 41) {
                 finalPositionAlpha = 13;
             }
+
+        this.getHoles().get(position).clearBalls();
+        this.getHoles().get(position).updateImage();
 
             new CountDownTimer((300 * (balls)), 300) {
                 public void onTick(long millisUntilFinished) {
@@ -104,10 +108,40 @@ public class Board {
                             i2++;
                         }
                     } else if (i2 > 13) {
-                        board.getHoles().get(i3).addBall();
-                        Log.d("TAG Varv 3", "Added ball at position " + i3);
-                        finalPosition = i3;
-                        i3++;
+                        if (player == 1 && i3 == 13) {
+                            board.getHoles().get(i3).skipHole(player, board);
+                            board.getHoles().get(0).updateImage();
+                            i4++;
+                            finalPosition = 0;
+                        } else if (player == 2 && i3 == 6) {
+                            board.getHoles().get(i3).skipHole(player, board);
+                            board.getHoles().get(7).updateImage();
+                            i3 += 2;
+                            finalPosition = 7;
+                        } else {
+                            board.getHoles().get(i3).addBall();
+                            board.getHoles().get(i3).updateImage();
+                            Log.d("TAG Varv 2", "Added ball at position " + i3);
+                            finalPosition = i3;
+                            i3++;
+                        }
+                    }else if (i3 > 13) {
+                        if (player == 1 && i4 == 13) {
+                            board.getHoles().get(i4).skipHole(player, board);
+                            board.getHoles().get(0).updateImage();
+                            finalPosition = 0;
+                        } else if (player == 2 && i4 == 6) {
+                            board.getHoles().get(i4).skipHole(player, board);
+                            board.getHoles().get(7).updateImage();
+                            i4 += 2;
+                            finalPosition = 7;
+                        } else {
+                            board.getHoles().get(i4).addBall();
+                            board.getHoles().get(i4).updateImage();
+                            Log.d("TAG Varv 2", "Added ball at position " + i4);
+                            finalPosition = i4;
+                            i4++;
+                        }
                     }
                 }
 
@@ -116,9 +150,14 @@ public class Board {
                     i = 0;
                     i2 = 0;
                     i3 = 0;
+                    i4 = 0;
                     ruleTakeBalls(finalPosition, player);
                     updateAllBalls();
                     unLock();
+                    if(gameOver(player)){
+                        gameOverStatus = true;
+                    }
+
                 }
             }.start();
 
@@ -223,7 +262,7 @@ public class Board {
         int hole4 = this.getHoles().get(3).getBalls();
         int hole5 = this.getHoles().get(4).getBalls();
         int hole6 = this.getHoles().get(5).getBalls();
-        int all1 = (hole1+hole2+hole3+hole4+hole5+hole6);
+        int all1 = (hole1 + hole2 + hole3 + hole4 + hole5 + hole6);
 
         int hole7 = this.getHoles().get(7).getBalls();
         int hole8 = this.getHoles().get(8).getBalls();
@@ -231,9 +270,9 @@ public class Board {
         int hole10 = this.getHoles().get(10).getBalls();
         int hole11 = this.getHoles().get(11).getBalls();
         int hole12 = this.getHoles().get(12).getBalls();
-        int all2 = (hole7+hole8+hole9+hole10+hole11+hole12);
+        int all2 = (hole7 + hole8 + hole9 + hole10 + hole11 + hole12);
 
-        if(all1==0 && player==1) {
+        if (all1 == 0 && player == 1) {
             this.getHoles().get(13).addBalls(all2);
             this.getHoles().get(7).clearBalls();
             this.getHoles().get(8).clearBalls();
@@ -241,10 +280,8 @@ public class Board {
             this.getHoles().get(10).clearBalls();
             this.getHoles().get(11).clearBalls();
             this.getHoles().get(12).clearBalls();
-            this.updateAllBalls();
             return true;
-        }
-        else if(all2==0 && player==2) {
+        } else if (all2 == 0 && player == 2) {
             this.getHoles().get(6).addBalls(all1);
             this.getHoles().get(0).clearBalls();
             this.getHoles().get(1).clearBalls();
@@ -252,7 +289,6 @@ public class Board {
             this.getHoles().get(3).clearBalls();
             this.getHoles().get(4).clearBalls();
             this.getHoles().get(5).clearBalls();
-            this.updateAllBalls();
             return true;
         }
 

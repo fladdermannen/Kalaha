@@ -30,6 +30,9 @@
 
 
     </string>
+    <string name="p1win">Player 1 wins!</string>
+    <string name="p2win">Player 2 wins!</string>
+    <string name="draw">It´s a draw!</string>
 
 
 

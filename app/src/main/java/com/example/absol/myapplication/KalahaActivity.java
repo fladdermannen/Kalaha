@@ -1,13 +1,28 @@
 package com.example.absol.myapplication;
 
 import android.app.ActionBar;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 public class KalahaActivity extends AppCompatActivity {
+
+    private Context mContext;
+    private PopupWindow mPopupWindow;
+    private RelativeLayout mRelativeLayout;
 
     Player playerOne = new Player();
     Player playerTwo = new Player();
@@ -28,6 +43,8 @@ public class KalahaActivity extends AppCompatActivity {
             actionBar.hide();
         }
         setContentView(R.layout.activity_display_message);
+
+        mContext = getApplicationContext();
 
         Hole playerOneHole1 = (Hole) findViewById(R.id.playerOneHole1);
         Hole playerOneHole2 = (Hole) findViewById(R.id.playerOneHole2);
@@ -60,52 +77,87 @@ public class KalahaActivity extends AppCompatActivity {
         board.setHoles(playerTwoHole5);
         board.setHoles(playerTwoHole6);
         board.setHoles(playerTwoNest);
+
     }
 
 
     void tmp(View view, int player)
     {
+        if(board.getGameOverStatus()) {
+            endGame();
+        }
+
+        int balls = ((Hole) view).getBalls();
+        int position = board.getHoles().indexOf(view);
+        if (balls == 0)
+            return;
+
         if(!board.getLockStatus() && ( (turn % 2 == 0 && player == 1) || (turn % 2 != 0 && player == 2))) {
             board.setLock();
-            int balls = ((Hole) view).getBalls();
-            int position = board.getHoles().indexOf(view);
-            if (balls == 0)
-                return;
 
-            ((Hole) view).clearBalls();
-            ((Hole) view).updateImage();
-
-            Log.d("TAG", "turn is first " + turn);
             turn += board.updateMovedBalls(balls, position, player);
-            Log.d("TAG", "turn is after " + turn);
-
 
             playerOne.setScore(board.getHoles().get(6).getBalls());
             playerTwo.setScore(board.getHoles().get(13).getBalls());
-            Log.d("TAG", "Score is " + playerOne.getScore() + " - " + playerTwo.getScore());
-
-            //Gameover funktion
-            if(board.gameOver(player)) {
-                playerOne.setScore(board.getHoles().get(6).getBalls());
-                playerTwo.setScore(board.getHoles().get(13).getBalls());
-                Log.d("Gameover", "Game over. Score is: " + playerOne.getScore() + " - " + playerTwo.getScore());
-            }
-
-
         }
     }
 
     // PLAYER ETT
     public void test(View view) {
-      tmp(view, 1);
+
+        if(!board.getLockStatus())
+            tmp(view, 1);
     }
 
     // PLAYER TVÅ
     public void test2(View view) {
-        tmp(view, 2);
+
+        if(!board.getLockStatus())
+            tmp(view, 2);
     }
 
+    public void endGame() {
+        board.setLock();
+        board.updateAllBalls();
+
+        playerOne.setScore(board.getHoles().get(6).getBalls());
+        playerTwo.setScore(board.getHoles().get(13).getBalls());
+        Log.d("Gameover", "Game over. Score is: " + playerOne.getScore() + " - " + playerTwo.getScore());
+
+            /*TextView mTextView = (TextView) findViewById(R.id.tv);
+            if(playerOne.getScore() > playerTwo.getScore())
+                mTextView.setText(R.string.p1win);
+            else if(playerTwo.getScore() > playerOne.getScore())
+                mTextView.setText(R.string.p2win);
+            else if(playerOne.getScore() == playerTwo.getScore())
+                mTextView.setText(R.string.draw); */
+
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View customView = inflater.inflate(R.layout.activity_popup, mRelativeLayout, true);
+
+        mPopupWindow = new PopupWindow(
+                customView,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        if(Build.VERSION.SDK_INT>=21){
+            mPopupWindow.setElevation(5.0f);
+        }
+        ImageButton closeButton = (ImageButton) customView.findViewById(R.id.ib_close);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Dismiss the popup window
+                mPopupWindow.dismiss();
+                Intent myIntent= new Intent(KalahaActivity.this, MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        mRelativeLayout = (RelativeLayout) findViewById(R.id.rl);
+        mPopupWindow.showAtLocation(mRelativeLayout, Gravity.CENTER,0,0);
+    }
 }
+
 
 
 

@@ -20,6 +20,9 @@ Spelets slut
 Spelet är slut när en spelare inte längre har något drag (stenar kvar att flytta), motspelaren får då flytta eventuellt alla resterande stenar i sina ambos till sin egen Kalaha. Vinnare är den spelare som har flest stenar i sin Kalaha. Det är inte säkert att den spelare som först har tömt ambona är vinnare, det kan också bli oavgjort.
 
 </string>
+    <string name="p1win">Spelare 1 vinner!</string>
+    <string name="p2win">Spelare 2 vinner!</string>
+    <string name="draw">Oavgjort!</string>
 
 
 </resources>
