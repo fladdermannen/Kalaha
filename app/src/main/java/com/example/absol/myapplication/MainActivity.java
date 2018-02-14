@@ -2,11 +2,16 @@ package com.example.absol.myapplication;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +43,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void sweSub(View v) {
+        Locale myLocale = new Locale("sv");
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        finish();
+    }
+
+    public void engSub(View v) {
+        Locale myLocale = new Locale("en");
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        finish();
+    }
 
     /*
     @Override

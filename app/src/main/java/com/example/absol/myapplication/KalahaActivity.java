@@ -124,13 +124,6 @@ public class KalahaActivity extends AppCompatActivity {
         playerTwo.setScore(board.getHoles().get(13).getBalls());
         Log.d("Gameover", "Game over. Score is: " + playerOne.getScore() + " - " + playerTwo.getScore());
 
-            /*TextView mTextView = (TextView) findViewById(R.id.tv);
-            if(playerOne.getScore() > playerTwo.getScore())
-                mTextView.setText(R.string.p1win);
-            else if(playerTwo.getScore() > playerOne.getScore())
-                mTextView.setText(R.string.p2win);
-            else if(playerOne.getScore() == playerTwo.getScore())
-                mTextView.setText(R.string.draw); */
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
         View customView = inflater.inflate(R.layout.activity_popup, mRelativeLayout, true);
@@ -140,7 +133,7 @@ public class KalahaActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        if(Build.VERSION.SDK_INT>=21){
+        if (Build.VERSION.SDK_INT >= 21) {
             mPopupWindow.setElevation(5.0f);
         }
         ImageButton closeButton = (ImageButton) customView.findViewById(R.id.ib_close);
@@ -149,12 +142,23 @@ public class KalahaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Dismiss the popup window
                 mPopupWindow.dismiss();
-                Intent myIntent= new Intent(KalahaActivity.this, MainActivity.class);
+                Intent myIntent = new Intent(KalahaActivity.this, MainActivity.class);
                 startActivity(myIntent);
             }
         });
         mRelativeLayout = (RelativeLayout) findViewById(R.id.rl);
-        mPopupWindow.showAtLocation(mRelativeLayout, Gravity.CENTER,0,0);
+
+        TextView mTextView = (TextView) mPopupWindow.getContentView().findViewById(R.id.tv);
+
+        if (playerOne.getScore() > playerTwo.getScore())
+            mTextView.setText(getString(R.string.p1win));
+        else if (playerTwo.getScore() > playerOne.getScore())
+            mTextView.setText(getString(R.string.p2win));
+        else if (playerOne.getScore() == playerTwo.getScore())
+            mTextView.setText(getString(R.string.draw));
+
+        mPopupWindow.showAtLocation(mRelativeLayout, Gravity.CENTER, 0, 0);
+
     }
 }
 
