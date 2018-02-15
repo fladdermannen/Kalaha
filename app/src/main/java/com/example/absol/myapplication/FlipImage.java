@@ -48,8 +48,6 @@ public class FlipImage extends AppCompatImageView{
                 final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.click);
                 mp.start();
 
-
-
                 setImageResource(onDownImage);
 
 
