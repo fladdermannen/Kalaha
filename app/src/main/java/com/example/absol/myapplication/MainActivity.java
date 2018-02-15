@@ -1,11 +1,17 @@
 package com.example.absol.myapplication;
 
 import android.app.ActionBar;
-import android.media.MediaPlayer;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,12 +35,37 @@ public class MainActivity extends AppCompatActivity {
         yellowBtn.onDownImage = (R.drawable.playsmall);
         yellowBtn.activity = KalahaActivity.class;
 
+
         FlipImage yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
         yellowBtn2.defaultImage = (R.drawable.rulesbig);
         yellowBtn2.onDownImage = (R.drawable.rulessmall);
         yellowBtn2.activity = RulesActivity.class;
+
     }
 
+    public void sweSub(View v) {
+        Locale myLocale = new Locale("sv");
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        finish();
+    }
+
+    public void engSub(View v) {
+        Locale myLocale = new Locale("en");
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        startActivity(refresh);
+        finish();
+    }
 
     /*
     @Override
