@@ -4,9 +4,7 @@ package com.example.absol.myapplication;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageButton;
+import android.media.MediaPlayer;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -19,6 +17,7 @@ public class FlipImage extends AppCompatImageView{
     int onDownImage;
     int defaultImage;
     java.lang.Class activity;
+    FlipImage playBtn;
 
 
 
@@ -44,6 +43,13 @@ public class FlipImage extends AppCompatImageView{
         switch (action) {
             case (MotionEvent.ACTION_DOWN):
                 Log.d("FlipButton", "down") ;
+
+
+                final MediaPlayer mp = MediaPlayer.create(getContext(), R.raw.click);
+                mp.start();
+
+
+
                 setImageResource(onDownImage);
 
 

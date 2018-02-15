@@ -45,7 +45,7 @@ public class Board {
     private int finalPosition;
 
     public int updateMovedBalls(int balls, final int position, final int player) {
-
+Log.d("tag" , ""+ balls + position + player);
 
             final Board board = this;
 

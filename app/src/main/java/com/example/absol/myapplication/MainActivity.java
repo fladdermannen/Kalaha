@@ -1,12 +1,11 @@
 package com.example.absol.myapplication;
 
 import android.app.ActionBar;
-import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,12 +29,10 @@ public class MainActivity extends AppCompatActivity {
         yellowBtn.onDownImage = (R.drawable.playsmall);
         yellowBtn.activity = KalahaActivity.class;
 
-
         FlipImage yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
         yellowBtn2.defaultImage = (R.drawable.rulesbig);
         yellowBtn2.onDownImage = (R.drawable.rulessmall);
         yellowBtn2.activity = RulesActivity.class;
-
     }
 
 

@@ -42,7 +42,6 @@
 
 
 
-
     </LinearLayout>
 
     <Button
@@ -51,11 +50,10 @@
         android:layout_height="20dp"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/buttonEng"
+
         android:layout_toStartOf="@+id/buttonEng"
-        android:layout_weight="1"
         android:background="@drawable/swe"
-        android:text="swe"
-        android:onClick="swesub"/>
+        android:text="@string/buttonSwe" />
 
     <Button
         android:id="@+id/buttonEng"
@@ -66,8 +64,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="18dp"
         android:layout_marginRight="18dp"
-        android:layout_weight="1"
         android:background="@drawable/eng"
-        android:text="engsub" />
+        android:text="@string/buttonEng"
+         />
 
 </RelativeLayout>

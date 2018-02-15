@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Kalaha</string>
-
     <string name="background">Wooden background</string>
     <string name="rulesHeader">Rules</string>
+    <string name="buttonEng">English</string>
+    <string name="buttonSwe">Swedish</string>
     <string name="rules">
 1.The objective of the game is to collect as many playing pieces as possible before one of the players
         clears their side of all the playing pieces.

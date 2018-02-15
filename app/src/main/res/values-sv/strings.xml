@@ -2,7 +2,10 @@
     <string name="app_name">Kalaha</string>
     <string name="background">Wooden background</string>
     <string name="rulesHeader">Regler</string>
+    <string name="buttonEng">Engelska</string>
+    <string name="buttonSwe">Svenska</string>
     <string name="rules">Spelets mål
+
 
 Det gäller att flytta stenar från sin egen sidas hål (ambo) till sin Kalaha (det större hålet på höger kortsida). Det gäller att få så många stenar som möjligt i sin egen Kalaha.
 
