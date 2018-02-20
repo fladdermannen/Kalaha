@@ -4,12 +4,14 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.Locale;
 
@@ -41,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         yellowBtn2.onDownImage = (R.drawable.rulessmall);
         yellowBtn2.activity = RulesActivity.class;
 
+        //Button one = (Button) this.findViewById(R.id.buttonSwe);
+        //final MediaPlayer mp = MediaPlayer.create(this, R.raw.clicktwo);
+        //one.setOnClickListener(new View.OnClickListener(){
+
+           // public void onClick(View v) {
+             //   mp.start();
+            //}
+        //});
     }
 
     public void sweSub(View v) {

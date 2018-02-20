@@ -213,6 +213,72 @@ public class Hole extends AppCompatImageButton {
             case 50:
                 this.setBackgroundResource(R.drawable.fifty);
                 break;
+            case 51:
+                this.setBackgroundResource(R.drawable.fiftyone);
+                break;
+            case 52:
+                this.setBackgroundResource(R.drawable.fiftytwo);
+                break;
+            case 53:
+                this.setBackgroundResource(R.drawable.fiftythree);
+                break;
+            case 54:
+                this.setBackgroundResource(R.drawable.fiftyfour);
+                break;
+            case 55:
+                this.setBackgroundResource(R.drawable.fiftyfive);
+                break;
+            case 56:
+                this.setBackgroundResource(R.drawable.fiftysix);
+                break;
+            case 57:
+                this.setBackgroundResource(R.drawable.fiftyseven);
+                break;
+            case 58:
+                this.setBackgroundResource(R.drawable.fiftyeight);
+                break;
+            case 59:
+                this.setBackgroundResource(R.drawable.fiftynine);
+                break;
+            case 60:
+                this.setBackgroundResource(R.drawable.sixty);
+                break;
+            case 61:
+                this.setBackgroundResource(R.drawable.sixtyone);
+                break;
+            case 62:
+                this.setBackgroundResource(R.drawable.sixtytwo);
+                break;
+            case 63:
+                this.setBackgroundResource(R.drawable.sixtythree);
+                break;
+            case 64:
+                this.setBackgroundResource(R.drawable.sixtyfour);
+                break;
+            case 65:
+                this.setBackgroundResource(R.drawable.sixtyfive);
+                break;
+            case 66:
+                this.setBackgroundResource(R.drawable.sixtysix);
+                break;
+            case 67:
+                this.setBackgroundResource(R.drawable.sixtyseven);
+                break;
+            case 68:
+                this.setBackgroundResource(R.drawable.sixtyeight);
+                break;
+            case 69:
+                this.setBackgroundResource(R.drawable.sixtynine);
+                break;
+            case 70:
+                this.setBackgroundResource(R.drawable.seventy);
+                break;
+            case 71:
+                this.setBackgroundResource(R.drawable.seventyone);
+                break;
+            case 72:
+                this.setBackgroundResource(R.drawable.seventytwo);
+                break;
         }
     }
 }
