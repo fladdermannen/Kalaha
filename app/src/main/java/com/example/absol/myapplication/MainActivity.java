@@ -43,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
         if(lang.equals("sv")){
             yellowBtn.setImageResource(R.drawable.spelastor);
             yellowBtn2.setImageResource(R.drawable.reglerstor);
+
             yellowBtn.defaultImage = (R.drawable.spelastor);
             yellowBtn.onDownImage = (R.drawable.spelaliten);
+
             yellowBtn2.defaultImage = (R.drawable.reglerstor);
             yellowBtn2.onDownImage = (R.drawable.reglerliten);
+
             yellowBtn.activity = KalahaActivity.class;
             yellowBtn2.activity = RulesActivity.class;
         } else {
@@ -72,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
         Intent refresh = new Intent(this, MainActivity.class);
-
         startActivity(refresh);
         finish();
     }
