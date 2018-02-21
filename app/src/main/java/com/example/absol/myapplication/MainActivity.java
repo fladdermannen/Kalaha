@@ -12,14 +12,15 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-
 import java.util.Locale;
+import com.example.absol.myapplication.LocaleHelper;
 
 
 public class MainActivity extends AppCompatActivity {
 
     FlipImage yellowBtn;
     FlipImage yellowBtn2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
 
         String lang = Locale.getDefault().getLanguage();
-        System.out.println("lang is" + lang);
+        System.out.println("lang is " + lang);
 
         if(lang.equals("sv")){
             yellowBtn.setImageResource(R.drawable.spelastor);
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
     }
 
     public void sweSub(View v) {
@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(this, MainActivity.class);
-        startActivity(refresh);
-        finish();
+        String lang = "sv";
+        LocaleHelper.setLocale(MainActivity.this, lang);
+        recreate();
     }
 
     public void engSub(View v) {
@@ -86,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(this, MainActivity.class);
-        startActivity(refresh);
-        finish();
+        String lang = "en";
+        LocaleHelper.setLocale(MainActivity.this, lang);
+        recreate();
     }
 
     /*
