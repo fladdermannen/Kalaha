@@ -5,9 +5,7 @@ import android.support.v4.app.FragmentActivity;
 
 import java.util.ArrayList;
 
-/**
- * Created by absol on 2018-01-18.
- */
+
 
 public class Player {
     private int score = 0;

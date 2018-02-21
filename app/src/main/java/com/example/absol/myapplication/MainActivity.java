@@ -18,7 +18,8 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    FlipImage yellowBtn;
+    FlipImage yellowBtn2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,25 +33,35 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        FlipImage yellowBtn = (FlipImage) findViewById(R.id.playBtn);
-        yellowBtn.defaultImage = (R.drawable.playbig);
-        yellowBtn.onDownImage = (R.drawable.playsmall);
-        yellowBtn.activity = KalahaActivity.class;
+
+        yellowBtn = (FlipImage) findViewById(R.id.playBtn);
+        yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
+
+        String lang = Locale.getDefault().getLanguage();
+        System.out.println("lang is" + lang);
+
+        if(lang.equals("sv")){
+            yellowBtn.setImageResource(R.drawable.spelastor);
+            yellowBtn2.setImageResource(R.drawable.reglerstor);
+            yellowBtn.defaultImage = (R.drawable.spelastor);
+            yellowBtn.onDownImage = (R.drawable.spelaliten);
+            yellowBtn2.defaultImage = (R.drawable.reglerstor);
+            yellowBtn2.onDownImage = (R.drawable.reglerliten);
+            yellowBtn.activity = KalahaActivity.class;
+            yellowBtn2.activity = RulesActivity.class;
+        } else {
+
+            yellowBtn.defaultImage = (R.drawable.playbig);
+            yellowBtn.onDownImage = (R.drawable.playsmall);
+            yellowBtn.activity = KalahaActivity.class;
+
+            yellowBtn2.defaultImage = (R.drawable.rulesbig);
+            yellowBtn2.onDownImage = (R.drawable.rulessmall);
+            yellowBtn2.activity = RulesActivity.class;
+
+        }
 
 
-        FlipImage yellowBtn2 = (FlipImage) findViewById(R.id.rulesBtn);
-        yellowBtn2.defaultImage = (R.drawable.rulesbig);
-        yellowBtn2.onDownImage = (R.drawable.rulessmall);
-        yellowBtn2.activity = RulesActivity.class;
-
-        //Button one = (Button) this.findViewById(R.id.buttonSwe);
-        //final MediaPlayer mp = MediaPlayer.create(this, R.raw.clicktwo);
-        //one.setOnClickListener(new View.OnClickListener(){
-
-           // public void onClick(View v) {
-             //   mp.start();
-            //}
-        //});
     }
 
     public void sweSub(View v) {
@@ -61,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
         Intent refresh = new Intent(this, MainActivity.class);
+
         startActivity(refresh);
         finish();
     }
